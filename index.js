@@ -8,7 +8,7 @@ var bot = new Discord.Client();
 
 bot.on('ready', () => {        
     console.log("BOT IS READY");
-    bot.user.setActivity("s!help", {type: "STREAMING", url:"https://www.twitch.tv/maki_sashimi"});
+    
     
 }) 
 
