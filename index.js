@@ -10,29 +10,7 @@ bot.on('ready', () => {
     console.log("BOT IS READY");
     
     
-}) 
-
-bot.commands = new Discord.Collection();
-
-function loadCmds() {
-    fs.readdir("./cmdss/", (err, files) => {
-        if(err) console.erroe(err);
-        var jsFiles = files.filter(f => f.split(".").pop() === "js");
-        if(jsFiles.length <= 0) {
-            console.log("Aucune commande à chargé.")
-            return;
-        }
-        console.log(`${jsFiles.length} commandes chargées.`);
-        jsFiles.forEach((f, i) => {
-            delete require.cache[require.resolve(`./cmdss/${f}`)];
-            var props = require(`./cmdss/${f}`);
-            console.log(`${i + 1}: ${f} chargé`);
-            bot.commands.set(props.help.name, props); 
-        })
-    })
-};
-
-loadCmds();
+})
 
 bot.on('message', message => {
 
